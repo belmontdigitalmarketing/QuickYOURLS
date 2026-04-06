@@ -1,0 +1,39 @@
+QuickYOURLS — Fast, Private URL Shortening with Your Own YOURLS Server
+
+Shorten any URL in one click using your own self-hosted YOURLS instance. Your API keys never leave your browser — no third-party servers, no tracking, no data collection.
+
+KEY FEATURES
+
+- One-Click Shortening: Click the extension icon to instantly shorten the current page URL.
+- Up to 5 Servers: Connect up to 5 different YOURLS instances and switch between them effortlessly.
+- Custom Keywords: Optionally set a custom keyword for your shortened URL (e.g., yourdomain.com/my-link).
+- Right-Click Shortening: Right-click any link on a page to shorten it, or select text to use it as a keyword.
+- Auto-Copy: Shortened URLs are automatically copied to your clipboard.
+- Connection Testing: Verify your server URL and API key with a single click before saving.
+- Clean, Modern UI: Simple and intuitive interface that gets out of your way.
+
+PRIVACY FIRST
+
+QuickYOURLS communicates ONLY with your own YOURLS server(s). No data is sent anywhere else — ever. Your API signature tokens are stored locally in your browser using Chrome's built-in storage API. We don't collect, track, or transmit any of your data.
+
+SETUP
+
+1. Install the extension.
+2. Click the extension icon, then open Settings.
+3. Add your YOURLS server URL and API signature token.
+4. Click "Test Connection" to verify.
+5. Start shortening!
+
+You'll need a working YOURLS installation. Visit https://yourls.org to learn more about setting up your own URL shortener.
+
+REQUIREMENTS
+
+- A self-hosted YOURLS instance (version 1.7+)
+- Your YOURLS API signature token (found in YOURLS admin under Tools > API)
+
+SUPPORT & INFO
+
+Visit https://belmontdigitalmarketing.com/chrome-extensions for documentation and support.
+Privacy policy: https://belmontdigitalmarketing.com/privacy-policy
+
+Developed by Belmont Digital Marketing.

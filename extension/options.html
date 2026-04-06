@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickYOURLS Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>QuickYOURLS Settings</h1>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="servers">Servers</button>
+      <button class="tab" data-tab="preferences">Preferences</button>
+    </nav>
+
+    <!-- Servers Tab -->
+    <section id="tab-servers" class="tab-content active">
+      <div class="section-header">
+        <h2>YOURLS Servers</h2>
+        <span class="server-count"><span id="server-count">0</span> / 5</span>
+      </div>
+      <p class="hint">Add up to 5 YOURLS server instances. Your API keys are stored locally and never sent to third parties.</p>
+
+      <div id="server-list"></div>
+
+      <button id="btn-add-server" class="btn btn-secondary">
+        <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+          <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+        </svg>
+        Add Server
+      </button>
+    </section>
+
+    <!-- Preferences Tab -->
+    <section id="tab-preferences" class="tab-content">
+      <h2>Preferences</h2>
+
+      <div class="pref-row">
+        <label class="toggle-label">
+          <input type="checkbox" id="pref-auto-copy" checked>
+          <span class="toggle-switch"></span>
+          <span>Auto-copy shortened URL to clipboard</span>
+        </label>
+      </div>
+
+      <div class="pref-row">
+        <label class="toggle-label">
+          <input type="checkbox" id="pref-ask-keyword">
+          <span class="toggle-switch"></span>
+          <span>Always show custom keyword field</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Status bar -->
+    <div id="status-bar" class="hidden">
+      <span id="status-message"></span>
+    </div>
+  </div>
+
+  <!-- Server card template -->
+  <template id="server-card-template">
+    <div class="server-card" data-server-id="">
+      <div class="card-header">
+        <input type="text" class="server-name" placeholder="Server Name (e.g. Production)" maxlength="40">
+        <span class="default-badge hidden">Default</span>
+        <button class="btn-set-default btn-link" title="Set as default server">Set as default</button>
+        <button class="btn-delete" title="Remove server">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="field">
+          <label>YOURLS URL</label>
+          <input type="url" class="server-url" placeholder="https://your-domain.com/yourls">
+        </div>
+        <div class="field">
+          <label>API Signature Token</label>
+          <div class="password-field">
+            <input type="password" class="server-signature" placeholder="Your secret signature token">
+            <button class="btn-toggle-vis" title="Show/hide token" type="button">
+              <svg class="eye-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path d="M10 3C5 3 1.73 7.11 1 10c.73 2.89 4 7 9 7s8.27-4.11 9-7c-.73-2.89-4-7-9-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button class="btn btn-test">Test Connection</button>
+        <span class="test-result"></span>
+      </div>
+    </div>
+  </template>
+
+  <script src="options.js"></script>
+</body>
+</html>

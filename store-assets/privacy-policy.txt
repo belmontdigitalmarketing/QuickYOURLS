@@ -1,0 +1,60 @@
+QUICKYOURLS — PRIVACY PRACTICES
+For Chrome Web Store submission
+
+=== Data Use Disclosure ===
+
+QuickYOURLS does NOT collect, use, or transfer any user data to any party, including the developer.
+
+Detailed disclosures for the Chrome Web Store privacy tab:
+
+1. PERSONALLY IDENTIFIABLE INFORMATION
+   - Not collected
+
+2. HEALTH INFORMATION
+   - Not collected
+
+3. FINANCIAL AND PAYMENT INFORMATION
+   - Not collected
+
+4. AUTHENTICATION INFORMATION
+   - Collected: Yes (YOURLS API signature tokens)
+   - Use: Stored locally in Chrome's sync storage to authenticate with the user's own YOURLS server(s). Never transmitted to any third party.
+   - Transferred to third parties: No
+
+5. PERSONAL COMMUNICATIONS
+   - Not collected
+
+6. LOCATION
+   - Not collected
+
+7. WEB HISTORY / USER ACTIVITY
+   - The extension reads the current tab URL ONLY when the user actively clicks the extension icon or uses the right-click context menu. URLs are sent ONLY to the user's own self-hosted YOURLS server for shortening. No browsing history is stored, logged, or transmitted to anyone else.
+   - Transferred to third parties: No
+
+8. WEBSITE CONTENT
+   - Not collected
+
+=== Permission Justifications ===
+
+activeTab:
+Required to read the URL of the current tab when the user clicks the extension icon. Only accessed on user action, never in the background.
+
+storage:
+Required to save the user's YOURLS server configurations (URL, name, API token) and preferences (auto-copy, keyword display). Uses chrome.storage.sync so settings are available across the user's Chrome profile.
+
+contextMenus:
+Required to add right-click menu options: "Shorten This Link" (on links) and "Shorten Page URL with keyword" (on selected text). These provide convenient shortening without opening the popup.
+
+clipboardWrite:
+Required to automatically copy the shortened URL to the user's clipboard after a successful shortening operation.
+
+optional_host_permissions ("https://*/*" and "http://*/*"):
+Declared as OPTIONAL, not granted at install. The extension uses chrome.permissions.request() to ask the user for access to their specific YOURLS server domain only when they add a server in settings. For example, if the user enters "https://links.example.com", the extension requests permission for "https://links.example.com/*" only. No broad access is ever granted — only the exact domains the user configures. This is required because YOURLS is self-hosted and users' server domains cannot be known in advance.
+
+=== Data Retention ===
+
+All data is stored locally using Chrome's storage API. No data is stored on any external server. Users can remove all stored data by uninstalling the extension or clearing extension data in Chrome settings.
+
+=== Privacy Policy URL ===
+
+https://belmontdigitalmarketing.com/privacy-policy

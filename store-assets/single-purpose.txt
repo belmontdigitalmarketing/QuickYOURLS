@@ -1,0 +1,1 @@
+This extension shortens the current page URL (or any right-clicked link) using the user's own self-hosted YOURLS server and copies the resulting short URL to the clipboard.

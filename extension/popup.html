@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickYOURLS</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- No servers configured -->
+  <div id="no-config" class="hidden">
+    <div class="empty-state">
+      <svg class="empty-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+        <path d="M24 16v8M24 28h.01" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <p>No YOURLS servers configured.</p>
+      <button id="btn-open-options" class="btn btn-primary">Open Settings</button>
+    </div>
+  </div>
+
+  <!-- Main UI -->
+  <div id="main-ui" class="hidden">
+    <!-- Server selector (hidden if only 1 server) -->
+    <div id="server-selector-row" class="form-row hidden">
+      <label for="server-select">Server</label>
+      <select id="server-select"></select>
+    </div>
+
+    <!-- URL display -->
+    <div class="form-row">
+      <label>URL to shorten</label>
+      <div id="current-url" class="url-display" title=""></div>
+    </div>
+
+    <!-- Keyword input (collapsible) -->
+    <div class="form-row">
+      <button id="btn-toggle-keyword" class="btn-link">+ Custom keyword</button>
+      <div id="keyword-row" class="hidden">
+        <input type="text" id="keyword-input" placeholder="my-keyword" spellcheck="false" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Shorten button -->
+    <div class="form-row">
+      <button id="btn-shorten" class="btn btn-primary btn-full">Shorten URL</button>
+    </div>
+
+    <!-- Result -->
+    <div id="result-area" class="hidden">
+      <div class="result-row">
+        <input type="text" id="short-url" readonly>
+        <button id="btn-copy" class="btn btn-icon" title="Copy to clipboard">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+            <path d="M8 2a2 2 0 00-2 2v1H5a2 2 0 00-2 2v9a2 2 0 002 2h7a2 2 0 002-2v-1h1a2 2 0 002-2V4a2 2 0 00-2-2H8zm4 11H5V7h7v6zm2-3V4H8v1h4a2 2 0 012 2v3z"/>
+          </svg>
+        </button>
+      </div>
+      <div id="copy-feedback" class="hidden">Copied!</div>
+    </div>
+
+    <!-- Error -->
+    <div id="error-area" class="hidden">
+      <p id="error-message"></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a id="btn-settings" href="#">Settings</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

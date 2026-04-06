@@ -1,0 +1,7 @@
+Lets create a YOURLS Link Shortener similar to https://chromewebstore.google.com/detail/yourls-link-shortener/bpaidpglokfmipgcbippdmcncngcjghh
+
+I want my own since I don't know htis developer and how they use our data. We have to provide our YOURLS secret (API) so I'd be more comfortable knowing how our data is used.
+
+This plugin supports multiple YOURLS apps, I like that option.
+
+Maybe this is fine if we can trust it.  Please advise.

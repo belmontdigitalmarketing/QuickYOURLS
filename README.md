@@ -143,6 +143,7 @@ QuickYOURLS/
 
 QuickYOURLS pairs well with these server-side YOURLS plugins from the same author:
 
+- **[YOURLS Users and API Tokens](https://github.com/belmontdigitalmarketing/YOURLS-Users-and-API-Tokens)** — multi-user accounts with per-integration, labeled, rotatable, revocable API tokens. **Recommended for QuickYOURLS:** instead of pasting your master admin signature token into the extension (or sharing it with a teammate), issue a scoped token per device or per person and revoke it independently if a browser is lost.
 - **[Custom Fields for Links](https://github.com/belmontdigitalmarketing/custom-fields-for-links)** — adds `cf1`, `cf2`, `cf3`, and `notification_url` fields to your links for campaign tracking.
 - **[Custom Notifier for Links](https://github.com/belmontdigitalmarketing/custom-notifier-for-links)** — webhook notifications when links are clicked.
 

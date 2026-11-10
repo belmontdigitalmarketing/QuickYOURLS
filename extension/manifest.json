@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "QuickYOURLS",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Quickly shorten URLs with your own YOURLS server. Supports up to 5 instances. Your API keys stay local.",
   "permissions": [
     "activeTab",

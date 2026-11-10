@@ -51,18 +51,14 @@ body {
   margin-bottom: 4px;
 }
 
-/* URL display */
-.url-display {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 8px 10px;
+/* URL input */
+input.url-input {
   font-size: 12px;
   color: #475569;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+}
+
+input.url-input:focus {
+  color: #1e293b;
 }
 
 /* Inputs */

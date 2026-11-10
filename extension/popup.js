@@ -79,12 +79,29 @@ function setupKeywordToggle(preferences) {
 async function loadCurrentUrl() {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const urlEl = document.getElementById('current-url');
-  if (tab && tab.url) {
-    urlEl.textContent = tab.url;
+
+  // Only pre-fill shortenable pages; chrome://, about:, etc. start empty for pasting
+  if (tab && tab.url && isHttpUrl(tab.url)) {
+    urlEl.value = tab.url;
     urlEl.title = tab.url;
-    urlEl.dataset.url = tab.url;
-  } else {
-    urlEl.textContent = 'Unable to read current tab URL';
+  }
+
+  // Select all on focus so a paste replaces the pre-filled URL
+  urlEl.addEventListener('focus', () => urlEl.select());
+  urlEl.addEventListener('input', () => { urlEl.title = urlEl.value; });
+  urlEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') document.getElementById('btn-shorten').click();
+  });
+
+  if (!urlEl.value) urlEl.focus();
+}
+
+function isHttpUrl(value) {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
   }
 }
 
@@ -99,9 +116,8 @@ async function checkContextAction() {
 
   const urlEl = document.getElementById('current-url');
   if (action.url) {
-    urlEl.textContent = action.url;
+    urlEl.value = action.url;
     urlEl.title = action.url;
-    urlEl.dataset.url = action.url;
   }
 
   if (action.keyword) {
@@ -150,8 +166,9 @@ function setupShortenButton(servers, activeServerId, preferences) {
 
       if (!server) throw new Error('No server configured');
 
-      const url = document.getElementById('current-url').dataset.url;
+      const url = document.getElementById('current-url').value.trim();
       if (!url) throw new Error('No URL to shorten');
+      if (!isHttpUrl(url)) throw new Error('URL must start with http:// or https://');
 
       await ensureHostPermission(server.url);
 

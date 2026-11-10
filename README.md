@@ -68,7 +68,7 @@ Full privacy policy: <https://belmontdigitalmarketing.com/privacy-policy>
 ## Usage
 
 ### Toolbar popup
-Click the extension icon. The current tab's URL is pre-filled. Optionally add a custom keyword, then click **Shorten URL**. The short URL is copied to your clipboard automatically.
+Click the extension icon. The current tab's URL is pre-filled — edit it or paste a different URL if you want to shorten something else. Optionally add a custom keyword, then click **Shorten URL**. The short URL is copied to your clipboard automatically.
 
 ### Right-click any link
 Right-click → *Shorten This Link*. The popup opens with that link ready to shorten.
@@ -147,6 +147,10 @@ QuickYOURLS pairs well with these server-side YOURLS plugins from the same autho
 - **[Custom Fields & Notifier for YOURLS](https://github.com/belmontdigitalmarketing/custom-fields-and-notifier)** — configurable per-link custom fields, webhook notifications on click, bot filtering, and extra dashboard columns. Useful for tagging shortened URLs (campaign IDs, segments) and triggering downstream automations when a link is clicked.
 
 ## Changelog
+
+### 2.1.0
+- The "URL to shorten" field is now editable — it still pre-fills with the current tab, but you can paste or type any URL to shorten instead. Press Enter to shorten.
+- On non-web pages (new tab, `chrome://` pages) the field starts empty and focused, ready to paste.
 
 ### 2.0.0 — Initial public release
 - One-click URL shortening from the toolbar popup.
